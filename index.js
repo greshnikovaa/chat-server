@@ -7,7 +7,12 @@ connectDB()
 
 app.use(cors({origin:true, credentials:true}));
 
+app.get('/', (req, res) => {
+    res.send("Server listening on port 5000");
+})
+
 app.use(express.json({extended:false}));
+
 
 const chat = require('./routers/api/chat')
 app.use('/api/chat', chat)
